@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+    text-align: center;
+    overflow-x: hidden;
+    color: #FFF;
+    background: url(/img/background.jpg);
+    background-size: cover;
+}
+
+#main__network {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    height: 120%;
+    width: 120%;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.8);
+}
+
+#main__cover {
+    height: 100%;
+    width: 95%;
+    margin: 0 2.5%;
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+}
+
+#main__header {
+    font-family: Abel;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 20px;
+}
+#main__subheader {
+    font-family: Open Sans;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 20px 0;
+}
+
+#main__hr {
+    background-color: #22313F;
+    height:5px;
+    width: 100%;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    border-radius: 15px;
+}

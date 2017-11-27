@@ -1,64 +1,16 @@
 html
     head
         meta(name="viewport" content="width=device-width, initial-scale=1")
-        style.
-            @import url('https://fonts.googleapis.com/css?family=Abel');
-            @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-            body {
-                text-align: center;
-            }
-
-            #main__network {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                height: 100%;
-                width: 100%;
-                z-index: -1;
-            }
-
-            #main__cover {
-                height: 100%;
-                width: 95%;
-                margin: 0 2.5%;
-                max-width: 1000px;
-                margin: auto;
-                text-align: left;
-            }
-            
-            #main__header {
-                font-family: Abel;
-                font-size: 40px;
-                font-weight: 800;
-                letter-spacing: 1px;
-                color: #444;
-                padding: 20px;
-            }
-            #main__subheader {
-                font-family: Open Sans;
-                font-size: 12px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                padding: 0 20px 0;
-            }
-
-            #main__section {
-                background-color: #24C6DC;
-                height:5px;
-                width: 100%;
-                position: absolute;
-                top: 200px;
-                left: 0px;
-                border-radius: 15px;
-            }
+        link(rel="stylesheet" href="/css/home.css")
+        link(rel="icon" href="/img/flap.png")
+        title FlappyCoin
     body
         #main__network
         #main__cover
-            #main__header #[img(src="/img/flap.png" height="30px")] FlappyCoin
-            #main__subheader Flap to the moon
-            #main__section
+            #main__header #[img(src="/img/flap.png" height="30px")] Flappy_Coin
+            #main__subheader Flap to the future
+            #main__hr
+
         script(src="/js/particles.js")
         script.
-            particlesJS.load('main__network', '/particles.json', function() {
-                console.log('callback - particles.js config loaded');
-            })
+            particlesJS.load('main__network', '/particles.json')
