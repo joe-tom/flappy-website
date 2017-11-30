@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
 body {
     text-align: center;
     overflow-x: hidden;
-    color: #FFF;
-    background: url(/img/background.jpg);
-    background-size: cover;
+    color: #000;
+    background-color: #FFF;
+    padding: 0;
+    margin: 0;
 }
 
 #main__network {
     position: absolute;
-    top: -10%;
+    top: 0%;
     left: -10%;
-    height: 120%;
+    height: 100%;
     width: 120%;
     z-index: -1;
-    background-color: rgba(0,0,0,0.8);
 }
 
 #main__cover {
@@ -29,7 +31,7 @@ body {
 
 #main__header {
     font-family: Abel;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 800;
     letter-spacing: 2px;
     padding: 20px;
@@ -42,12 +44,23 @@ body {
     padding: 0 20px 0;
 }
 
-#main__hr {
-    background-color: #22313F;
-    height:5px;
+#page__download {
+    height: 70%;
     width: 100%;
-    position: absolute;
-    top: 200px;
-    left: 0px;
-    border-radius: 15px;
+    background-color: #EEE;
 }
+#page__contact {
+    height: 30%;
+    width: 100%;
+    background-color: #222;
+    color: #FFF;
+}
+.page__title {
+    width: 100%;
+    padding-top: 50px;
+    font-family: Raleway;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+

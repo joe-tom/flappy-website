@@ -1,0 +1,36 @@
+#block__table {
+    width: 80%;
+    font-family: Open Sans;
+    font-size: 12px;
+    border-collapse: collapse;
+    margin-top: 100px;
+    color: #000;
+    box-shadow: 0px 1px 2px #DDD;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#block__table thead {
+    font-family: Raleway;
+    background-color: #FFF;
+    font-weight: 100;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #EEE;
+}
+#block__table th {
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+
+#block__table td {
+    text-align: right;
+    padding: 10px;
+}
+
+#block__table tr:nth-child(even) td{
+    background-color: rgba(0,0,0,0.05);
+}
