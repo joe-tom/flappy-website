@@ -12,7 +12,7 @@ var client = new flappycoin.Client({
 
 var last = (amount) => {
     var grab = (acc, hash, num) => {
-        if (num == 0) {
+        if (num <= 0) {
             return acc
         }
 
