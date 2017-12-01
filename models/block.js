@@ -1,6 +1,11 @@
 const async = require('async')
-const flappycoin = require('flappycoin')
 const bitPony = require('bitpony')
+
+const flappycoin = new require('flappycoin').Cient({
+    user: 'alice',
+    pass: 'joe',
+    port: 8332
+})
 
 
 var last = (amount) => {
