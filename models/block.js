@@ -29,5 +29,5 @@ var last = (amount) => {
 }
 
 
-last(~~process.argv[3])
+last(~~process.argv[2])
 
