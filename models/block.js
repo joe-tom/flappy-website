@@ -16,14 +16,14 @@ var last = (amount) => {
             return acc
         }
 
-        flappycoin.cmd('getblock', hash, (err, json) => {
+        client.cmd('getblock', hash, (err, json) => {
             acc.push(json)
             grab(acc, json.previousblockhash, num - 1)
         })
     }
 
 
-    flappycoin.cmd('getbestblockhash', (err, hash) => {
+    client.cmd('getbestblockhash', (err, hash) => {
         console.log(grab([],hash,amount))
     })
 }
