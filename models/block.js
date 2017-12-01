@@ -11,28 +11,20 @@ var client = new flappycoin.Client({
 
 
 var last = (amount) => {
-    var grab = (acc, hash, cb) => {
+    var grab = (acc, hash, num) => {
+        if (num == 0) {
+            return acc
+        }
+
         flappycoin.cmd('getblock', hash, (err, json) => {
             acc.push(json)
-            cb(null, acc, json.previousblockhash)
+            grab(acc, json.previousblockhash, num - 1)
         })
     }
-    var fall = [
-        cb => {
-            flappycoin.cmd('getbestblockhash', (err, hash) => {
-                cb(null, [], hash)
-            })
-        },
-    ]
 
-    for(var i = amount; i--;) {
-        fall.push(grab)
-    }
 
-    return new Promise((resolve, reject) => {
-        async.waterfall(fall, (err, final, lasthash) => {
-            console.log(final)
-        })
+    flappycoin.cmd('getbestblockhash', (err, hash) => {
+        console.log(grab([],hash,amount))
     })
 }
 
