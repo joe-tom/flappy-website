@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway|Titillium+Web');
+
+body {
+    text-align: center;
+}
+
+#main__container {
+    margin: auto;
+    text-align: left;
+    width: 80%;
+    max-width: 1000px;
+    padding-top: 100px;
+}
+
+
+#block__number {
+    font-family: Titillium Web;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.block__info {
+    font-family: Courier;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.block__header {
+    font-family: Titillium Web;
+    font-size: 20px;
+    margin-top: 50px;
+}
