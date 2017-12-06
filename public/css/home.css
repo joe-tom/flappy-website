@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 
-body {
+body, html{
     text-align: center;
     overflow-x: hidden;
     color: #000;
     background-color: #FFF;
     padding: 0;
     margin: 0;
+    width: 100%;
+    height: 100%;
+    clear: both;
 }
 
 #main__network {
@@ -29,12 +32,23 @@ body {
     text-align: left;
 }
 
+
 #main__header {
+    min-height: 80px;
+    width: 100%;
+    background: url(/img/light_honeycomb.png);
+    text-align: center;
+    float: left;
+}
+#header__inner{
     font-family: Abel;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 2px;
-    padding: 20px;
+    max-width: 1000px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
 }
 #main__subheader {
     font-family: Open Sans;

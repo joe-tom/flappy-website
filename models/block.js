@@ -1,6 +1,5 @@
 const async = require('async')
 const bitPony = require('bitpony')
-
 const flappycoin = require('flappycoin')
 
 var client = new flappycoin.Client({
@@ -9,28 +8,32 @@ var client = new flappycoin.Client({
     port: 8332
 })
 
-
-var last = (amount) => {
-    var grab = (acc, hash, num, cb) => {
-        if (num <= 0) {
-            cb(acc)
-            return acc
+var best  = (n, cb) => {
+    var fetch = (hash, n, acc) => {
+        if (n <- 0) {
+            return cb && cb(acc)
         }
-
-        client.cmd('getblock', hash, (err, json) => {
-            acc.push(json)
-            grab(acc, json.previousblockhash, num - 1, cb)
+        block(hash, json => {
+            fetch(json.previousblockhash, n - 1, acc.concat(json))
         })
     }
 
-
     client.cmd('getbestblockhash', (err, hash) => {
-        grab([],hash,amount, a => {
-            console.log(a)
+        fetch(hash, n, [])
+    })
+}
+
+var block = (hash, cb) => {
+    client.cmd('getblock', hash, (err, json) => {
+        async.map(json.tx, (tx, cb) => {
+            client.cmd('getrawtransaction', tx, cb)
+        }, (err, txs) => {
+            json.tx = txs.map(tx => bitPony.tx.read(tx))
+            cb (json)
         })
     })
 }
 
-
-last(~~process.argv[2])
-
+module.exports = {
+    best
+}

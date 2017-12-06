@@ -1,41 +1,53 @@
-html
-    head
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(rel="stylesheet" href="/css/block.css")
-    body
-        #main__container
-            #block__number Block #31
-            table(style="margin-top:30px")
-                tr
-                    td.block__info #[strong Hash]
-                    td.block__info C278EC5A69C34AACE42773E41B1163E6CE40C906F2A14F807D39D1B2A1C2DFF5
-                tr
-                    td.block__info #[strong Previous Hash]
-                    td.block__info D04B98F48E8F8BCC15C6AE5AC050801CD6DCFD428FB5F9E65C4E16E7807340FA
-                tr
-                    td.block__info #[strong Merkle Root ]
-                    td.block__info C278EC5A69C34AACE42773E41B1163E6CE40C906F2A14F807D39D1B2A1C2DFF5
-                tr
-                    td.block__info #[strong Difficulty ]
-                    td.block__info A1C2DFF5
-                tr
-                    td.block__info #[strong Timestamp ]
-                    td.block__info C278EC5A
-                tr
-                    td.block__info #[strong Coinbase Text ]
-                    td.block__info Hello World
-                tr
-                    td &nbsp;
-                tr
-                    td.block__info #[strong Fees ]
-                    td.block__info 100.0101 FLAP
-                tr
-                    td.block__info #[strong Reward ]
-                    td.block__info 20.0
-            .block__header Transaction List
-            table(style="margin-top: 30px;")
-                tr
-                    td
+extends ./layout
 
-                    td
-                    td
+block Head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="/css/block.css")
+block Body
+    #block__number Block #31
+    table(style="margin-top:30px")
+        tr
+            td.block__info.block__info--header Hash
+            td.block__info=block.hash
+        tr
+            td.block__info.block__info--header Previous Hash
+            td.block__info=block.previousHash
+        tr
+            td.block__info.block__info--header Merkle Root
+            td.block__info
+        tr
+            td.block__info.block__info--header Difficulty
+            td.block__info A1C2DFF5
+        tr
+            td.block__info.block__info--header Timestamp
+            td.block__info C278EC5A
+        tr
+            td.block__info.block__info--header Coinbase Text
+            td.block__info Hello World
+        tr
+            td &nbsp;
+        tr
+            td.block__info.block__info--header Fees
+            td.block__info 100.0101 FLAP
+        tr
+            td.block__info.block__info--header Reward
+            td.block__info 20.0
+    .block__header Transaction List
+    table#block__transactions
+        tr.transaction
+            td.transaction__info (Reward + Fees)
+            td.transaction__info
+                img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
+            td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+            td.transaction__info 10.2 FLAP
+        tr.transaction
+            td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+            td.transaction__info
+                img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
+            td.transaction__info.
+                1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+                #[br]#[br]
+                1DPfRBAE8r5qF5vA2Rir3LN77rSsJyY2T8
+                #[br]#[br]
+                161VSgNyKbVybmeFNmRwEcC89YKXuQGwxJ
+            td.transaction__info 10.2 FLAP

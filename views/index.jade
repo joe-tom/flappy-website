@@ -1,86 +1,20 @@
-html
-    head
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(rel="stylesheet" href="/css/home.css")
-        link(rel="stylesheet" href="/css/table.css")
-        link(rel="icon" href="/img/flap.png")
-        link(href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet")
-        title FlappyCoin 
-    body
-        #main__network
-        #main__cover
-            #main__header #[img(src="/img/flap.png" height="30px")] FlappyCoin |FLAP|
-                #main__search(style="float: right;width: 90%;max-width: 250px;")
-                    input(style="border: 1px solid #EEE;border-radius: 30px;outline: 0;font-family:Nova Mono;font-weight: 100;font-size: 12px;width: 100%;padding: 10px 15px;margin: 0 10px;letter-spacing: 0.5px;"
-                    placeholder="Find by address, tx, block")
-            #main__subheader Flap to the future
-            table#block__table
-                thead
-                    th Block#
-                    th Hash
-                    th Time (UTC)
-                    th # Inputs
-                    th # Output
-                    th Output (FLAP)
-                    th Fees
-                tr
-                    td 1
-                    td 0xFF0B102D
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
+extends ./layout
 
-                tr
-                    td 1
-                    td 0xFF0B102D
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-                tr
-                    td 1
-                    td 0xFF0B102D
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-                tr
-                    td 1
-                    td 100
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-                tr
-                    td 1
-                    td 100
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-                tr
-                    td 1
-                    td 100
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-                tr
-                    td 1
-                    td 100
-                    td Today
-                    td 10
-                    td 32
-                    td 1
-                    td 31231.21
-
-        script(src="/js/particles.js")
-        script.
-            //particlesJS.load('main__network', '/particles.json')
+block Body
+    table#block__table
+        thead
+            th Height
+            th Hash
+            th Time
+            th # Inputs
+            th # Outputs
+            th Output (FLAP)
+        tr(v-for="block in blocks")
+            td {{block.height}}
+            td {{block.hash.substr(0,8)}}
+            td {{new Date(block.time * 1000).toLocaleTimeString()}}
+            td {{block.input_count}}
+            td {{block.output_count}}
+            td {{block.fees.toFixed(8)}}
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js")
+    script(src="/js/index.js")

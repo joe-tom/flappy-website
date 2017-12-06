@@ -19,7 +19,9 @@ body {
     font-size: 30px;
     font-weight: 600;
 }
-
+.block__info--header {
+    font-weight: 800;
+}
 .block__info {
     font-family: Courier;
     font-size: 13px;
@@ -30,4 +32,19 @@ body {
     font-family: Titillium Web;
     font-size: 20px;
     margin-top: 50px;
+}
+
+#block__transactions {
+    margin-top: 30px;
+    font-family: Courier;
+    font-weight: 600;
+    font-size: 12px;
+    border-spacing: 0px 2px;
+}
+.transaction {
+    background-color: #EEE;
+    margin-top: 10px;
+}
+.transaction__info {
+    padding: 10px;
 }
