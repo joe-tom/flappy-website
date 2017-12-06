@@ -4,17 +4,22 @@ block Head
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="/css/block.css")
 block Body
-    #block__number Block #31
+    #block__number="Block #"+block.height
     table(style="margin-top:30px")
         tr
             td.block__info.block__info--header Hash
             td.block__info=block.hash
         tr
             td.block__info.block__info--header Previous Hash
-            td.block__info=block.previousHash
+            td.block__info=block.previousblockhash
+        tr
+            td.block__info.block__info--header Next Hash
+            td.block__info=block.nextblockhash
         tr
             td.block__info.block__info--header Merkle Root
-            td.block__info
+            td.block__info=block.merkleroot
+        tr
+            td &nbsp;
         tr
             td.block__info.block__info--header Difficulty
             td.block__info A1C2DFF5

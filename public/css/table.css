@@ -22,15 +22,18 @@
 #block__table th {
     padding: 10px;
     box-sizing: border-box;
-    text-align: right;
+    text-align: center;
 }
 
 
 #block__table td {
-    text-align: right;
-    padding: 10px;
+    padding: 8px 10px;
+    text-align: center;
 }
 
 #block__table tr:nth-child(even) td{
     background-color: rgba(0,0,0,0.05);
+}
+td.center {
+    text-align: center;
 }

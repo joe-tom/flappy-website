@@ -35,5 +35,6 @@ var block = (hash, cb) => {
 }
 
 module.exports = {
-    best
+    best,
+    block
 }

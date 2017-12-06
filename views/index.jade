@@ -6,15 +6,17 @@ block Body
             th Height
             th Hash
             th Time
-            th # Inputs
-            th # Outputs
+            th # Ins
+            th # Outs
             th Output (FLAP)
+            th Difficulty
         tr(v-for="block in blocks")
-            td {{block.height}}
+            td #[a(:href="'/block/'+block.hash") {{block.height}}]
             td {{block.hash.substr(0,8)}}
             td {{new Date(block.time * 1000).toLocaleTimeString()}}
-            td {{block.input_count}}
-            td {{block.output_count}}
+            td.center {{block.input_count}}
+            td.center {{block.output_count}}
             td {{block.fees.toFixed(8)}}
+            td {{block.difficulty}}
     script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js")
     script(src="/js/index.js")
