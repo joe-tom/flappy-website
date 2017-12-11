@@ -3,56 +3,53 @@ extends ./layout
 block Head
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="/css/block.css")
+    script.
+        const BLOCK=!{JSON.stringify(block)}
 block Body
-    #block__number="Block #"+block.height
-    table(style="margin-top:30px")
-        tr
-            td.block__info.block__info--header Hash
-            td.block__info=block.hash
-        tr
-            td.block__info.block__info--header Previous Hash
-            td.block__info=block.previousblockhash
-        tr
-            td.block__info.block__info--header Next Hash
-            td.block__info=block.nextblockhash
-        tr
-            td.block__info.block__info--header Merkle Root
-            td.block__info=block.merkleroot
-        tr
-            td &nbsp;
-        tr
-            td.block__info.block__info--header Difficulty
-            td.block__info A1C2DFF5
-        tr
-            td.block__info.block__info--header Timestamp
-            td.block__info C278EC5A
-        tr
-            td.block__info.block__info--header Coinbase Text
-            td.block__info Hello World
-        tr
-            td &nbsp;
-        tr
-            td.block__info.block__info--header Fees
-            td.block__info 100.0101 FLAP
-        tr
-            td.block__info.block__info--header Reward
-            td.block__info 20.0
-    .block__header Transaction List
-    table#block__transactions
-        tr.transaction
-            td.transaction__info (Reward + Fees)
-            td.transaction__info
-                img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
-            td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
-            td.transaction__info 10.2 FLAP
-        tr.transaction
-            td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
-            td.transaction__info
-                img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
-            td.transaction__info.
-                1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
-                #[br]#[br]
-                1DPfRBAE8r5qF5vA2Rir3LN77rSsJyY2T8
-                #[br]#[br]
-                161VSgNyKbVybmeFNmRwEcC89YKXuQGwxJ
-            td.transaction__info 10.2 FLAP
+    #block__body
+        #block__number="Block #"+block.height
+        table(style="margin-top:30px;")
+            tr
+                td.block__info.block__info--header Hash
+                td.block__info #[a(:href="'/block/'+ block.hash") {{block.hash}}]
+            tr
+                td.block__info.block__info--header Previous Hash
+                td.block__info #[a(:href="'/block/'+ block.previousblockhash") {{block.previousblockhash}}]
+            tr
+                td.block__info.block__info--header Next Hash
+                td.block__info #[a(:href="'/block/'+ block.nextblockhash") {{block.nextblockhash}}]
+
+            tr
+                td &nbsp;
+            tr
+                td.block__info.block__info--header Difficulty
+                td.block__info {{block.difficulty}}
+            tr
+                td.block__info.block__info--header Timestamp
+                td.block__info {{new Date(block.time * 1000).toLocaleTimeString()}}
+            tr
+                td.block__info.block__info--header Coinbase Text
+                td.block__info {{(txs[0].vin[0].coinbase.match(/.{1,2}/g).map(v => String.fromCharCode(parseInt(v, 16))).join(''))}}
+            tr
+                td &nbsp;
+        .block__header Transaction List
+        table#block__transactions
+            tr.transaction
+                td.transaction__info (Reward + Fees)
+                td.transaction__info
+                    img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
+                td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+                td.transaction__info 10.2 FLAP
+            tr.transaction
+                td.transaction__info 1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+                td.transaction__info
+                    img(src="/img/arrow.png" height="15px" style="margin: 0 10px;")
+                td.transaction__info.
+                    1FLDCfr9iG7n6bAdGsqBXmhaLgC4aSze72
+                    #[br]#[br]
+                    1DPfRBAE8r5qF5vA2Rir3LN77rSsJyY2T8
+                    #[br]#[br]
+                    161VSgNyKbVybmeFNmRwEcC89YKXuQGwxJ
+                td.transaction__info 10.2 FLAP
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.min.js")
+    script(src="/js/block.js")

@@ -26,9 +26,9 @@ var best  = (n, cb) => {
 var block = (hash, cb) => {
     client.cmd('getblock', hash, (err, json) => {
         async.map(json.tx, (tx, cb) => {
-            client.cmd('getrawtransaction', tx, cb)
+            client.cmd('getrawtransaction', tx, 1, cb)
         }, (err, txs) => {
-            json.tx = txs.map(tx => bitPony.tx.read(tx))
+            json.tx = txs
             cb (json)
         })
     })

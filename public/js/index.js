@@ -16,12 +16,13 @@ fetch('/api/blocks/last/10')
 .then(json => {
     Blocks.blocks = json.map(block => {
         block.fees = block.tx.reduce((a,v) => {
-            return a + v.out.reduce((a,v) => {
-                return a + v.amount
+            return a + v.vout.reduce((a,v) => {
+                return a + v.value
             },0)
-        },0) * 1e-8
-        block.input_count = block.tx.reduce((a,v) => (a+v.in_count),0)
-        block.output_count = block.tx.reduce((a,v) => (a+v.out_count),0)
+        },0)
+
+        block.input_count = block.tx.reduce((a,v) => (a+v.vin.length),0)
+        block.output_count = block.tx.reduce((a,v) => (a+v.vout.length),0)
 
         return block
     }) 
